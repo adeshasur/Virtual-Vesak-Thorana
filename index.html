@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Vesak Thorana</title>
+    <title>Budu Siritha Digital Vesak Thorana</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,7 +18,7 @@
     <header class="topbar">
         <div>
             <p class="eyebrow">Vesak 2026</p>
-            <h1>Digital Vesak Thorana</h1>
+            <h1>Budu Siritha Digital Vesak Thorana</h1>
         </div>
         <button class="music-toggle" id="musicToggle" type="button" aria-pressed="false">
             <span class="music-toggle__icon" aria-hidden="true">♪</span>
@@ -28,14 +28,15 @@
 
     <main>
         <section class="intro" aria-labelledby="introTitle">
-            <h2 id="introTitle">Experience the beauty of Vesak through lights, stories, and peace.</h2>
-            <p>Click each illuminated panel to explore key moments from the life of the Buddha in a calm digital thorana experience.</p>
+            <h2 id="introTitle">බුදු සිරිතේ ප්‍රධාන අවස්ථා ආලෝකයෙන් කියන ඩිජිටල් තොරණ.</h2>
+            <p>Click each illuminated panel to explore seven respectful story scenes from the life of the Buddha.</p>
         </section>
 
         <section class="thorana-wrap" aria-label="Interactive Vesak thorana">
             <div class="thorana">
                 <div class="dome">
                     <span class="flame"></span>
+                    <span class="dharma-wheel" aria-hidden="true">☸</span>
                     <span class="dome__ring"></span>
                     <span class="dome__ring dome__ring--inner"></span>
                 </div>
@@ -46,26 +47,38 @@
                     <div class="arch__lights arch__lights--left" aria-hidden="true"></div>
                     <div class="arch__lights arch__lights--right" aria-hidden="true"></div>
 
-                    <button class="story-panel story-panel--main" type="button" data-story="birth">
-                        <span class="story-panel__number">01</span>
-                        <span class="story-panel__title">සිද්ධාර්ථ කුමරුගේ උපත</span>
-                    </button>
+                    <div class="sacred-center">
+                        <img src="assets/images/buddha-silhouette.png" alt="" class="sacred-center__image">
+                        <span class="sacred-center__halo" aria-hidden="true"></span>
+                    </div>
 
                     <div class="panel-grid">
-                        <button class="story-panel" type="button" data-story="renunciation">
+                        <button class="story-panel" type="button" data-story="birth">
+                            <span class="story-panel__number">01</span>
+                            <span class="story-panel__title">උපත</span>
+                        </button>
+                        <button class="story-panel" type="button" data-story="four-sights">
                             <span class="story-panel__number">02</span>
+                            <span class="story-panel__title">හතර දර්ශන</span>
+                        </button>
+                        <button class="story-panel" type="button" data-story="renunciation">
+                            <span class="story-panel__number">03</span>
                             <span class="story-panel__title">මහබිනික්මන</span>
                         </button>
+                        <button class="story-panel" type="button" data-story="austerities">
+                            <span class="story-panel__number">04</span>
+                            <span class="story-panel__title">දුෂ්කර ක්‍රියා</span>
+                        </button>
                         <button class="story-panel" type="button" data-story="enlightenment">
-                            <span class="story-panel__number">03</span>
-                            <span class="story-panel__title">බුද්ධත්වය ලැබීම</span>
+                            <span class="story-panel__number">05</span>
+                            <span class="story-panel__title">බුද්ධත්වය</span>
                         </button>
                         <button class="story-panel" type="button" data-story="sermon">
-                            <span class="story-panel__number">04</span>
-                            <span class="story-panel__title">ධම්මචක්කප්පවත්තනය</span>
+                            <span class="story-panel__number">06</span>
+                            <span class="story-panel__title">පළමු දේශනාව</span>
                         </button>
-                        <button class="story-panel" type="button" data-story="parinibbana">
-                            <span class="story-panel__number">05</span>
+                        <button class="story-panel story-panel--wide" type="button" data-story="parinibbana">
+                            <span class="story-panel__number">07</span>
                             <span class="story-panel__title">පරිනිර්වාණය</span>
                         </button>
                     </div>
@@ -84,14 +97,18 @@
     </main>
 
     <footer>
-        Developed by Lucifer X | Vesak 2026
+        © 2025 Adheesha Sooriyaarachchi.
+        <br>
+        CodaWix™
     </footer>
 
     <div class="modal" id="storyModal" role="dialog" aria-modal="true" aria-labelledby="storyTitle" aria-hidden="true">
         <div class="modal__backdrop" data-close-modal></div>
         <article class="modal__card">
             <button class="modal__close" id="closeModal" type="button" aria-label="Close story">×</button>
-            <div class="modal__icon" id="storyIcon" aria-hidden="true">☸</div>
+            <div class="modal__visual" id="storyVisual" aria-hidden="true">
+                <span class="modal__icon" id="storyIcon">☸</span>
+            </div>
             <p class="modal__kicker" id="storyKicker"></p>
             <h2 id="storyTitle"></h2>
             <p id="storyDescription"></p>

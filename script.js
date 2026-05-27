@@ -4,35 +4,56 @@ const stories = [
         number: "Panel 1",
         title: "සිද්ධාර්ථ කුමරුගේ උපත",
         icon: "✦",
-        description: "වෙසක් පොහෝ දින ලුම්බිණි උයනේ සිද්ධාර්ථ කුමරු උපත ලැබූ බව බෞද්ධ ඉතිහාසයේ සඳහන් වේ. මේ උපත ලෝකයට කරුණාව, ප්‍රඥාව සහ සමාදානය ගෙන ආ මහා ආරම්භයක් ලෙස සැලකේ."
+        glow: "rgba(255, 214, 107, 0.38)",
+        description: "ලුම්බිණි උයනේ සිද්ධාර්ථ කුමරු උපත ලැබීය. මෙම අවස්ථාව බුදු සිරිතේ ආරම්භය ලෙස ශ්‍රද්ධාවෙන් සිහි කරයි."
+    },
+    {
+        id: "four-sights",
+        number: "Panel 2",
+        title: "හතර දර්ශන",
+        icon: "◌",
+        glow: "rgba(130, 247, 255, 0.3)",
+        description: "වයසක, රෝගී, මළ සහ සංඝයා දැක ජීවිතයේ අනිත්‍ය බවත් දුකත් සිද්ධාර්ථ කුමරුට ගැඹුරින් අවබෝධ විය."
     },
     {
         id: "renunciation",
-        number: "Panel 2",
+        number: "Panel 3",
         title: "මහබිනික්මන",
         icon: "☾",
-        description: "සිද්ධාර්ථ කුමරු ලෝකයේ දුක, වයසට යාම, රෝග සහ මරණය පිළිබඳ අවබෝධයක් ලබා සත්‍යය සොයා රාජමාළිගාව හැර ගිය අවස්ථාව මහබිනික්මන ලෙස හැඳින්වේ."
+        glow: "rgba(143, 112, 255, 0.32)",
+        description: "සත්‍යය සොයා රාජකීය ජීවිතය අත්හැර නිහඬ රැයක පිටත්වූ අවස්ථාව මහබිනික්මන ලෙස හැඳින්වේ."
+    },
+    {
+        id: "austerities",
+        number: "Panel 4",
+        title: "දුෂ්කර ක්‍රියා",
+        icon: "✺",
+        glow: "rgba(255, 122, 144, 0.28)",
+        description: "සත්‍යය සෙවීමේ දැඩි කැපවීමෙන් සිද්ධාර්ථ තවුසා දුෂ්කර ක්‍රියා කළ කාලය මෙහි සිහි කරයි."
     },
     {
         id: "enlightenment",
-        number: "Panel 3",
+        number: "Panel 5",
         title: "බුද්ධත්වය ලැබීම",
         icon: "☸",
-        description: "බෝධි වෘක්ෂය යට ගැඹුරු භාවනාවෙන් පසු ගෞතම බුදුන් වහන්සේ චතුරාර්ය සත්‍යය අවබෝධ කර බුද්ධත්වයට පත්වූ සේක. මෙය අඳුරෙන් ආලෝකයට යන මහා ජයග්‍රහණයකි."
+        glow: "rgba(255, 214, 107, 0.46)",
+        description: "බෝධි වෘක්ෂය යටදී ගැඹුරු භාවනාවෙන් පසු සම්මා සම්බුද්ධත්වය ලැබූ මහා පූජනීය අවස්ථාවයි."
     },
     {
         id: "sermon",
-        number: "Panel 4",
-        title: "ධම්මචක්කප්පවත්තන සූත්‍රය",
+        number: "Panel 6",
+        title: "පළමු ධර්ම දේශනාව",
         icon: "◉",
-        description: "බුදුන් වහන්සේ ඉසිපතන මිගදායේදී පළමු ධර්ම දේශනාව පැවැත්වූ සේක. මධ්‍යම ප්‍රතිපදාව සහ චතුරාර්ය සත්‍යය පැහැදිලි කළ මෙම අවස්ථාව ධර්ම චක්‍රය පළමුව වට කළ මොහොත ලෙස සලකයි."
+        glow: "rgba(130, 247, 255, 0.34)",
+        description: "ඉසිපතන මිගදායේදී ධම්මචක්කප්පවත්තන සූත්‍රය දේශනා කරමින් බුදුන් වහන්සේ ධර්ම චක්‍රය පළමුව වට කළ සේක."
     },
     {
         id: "parinibbana",
-        number: "Panel 5",
+        number: "Panel 7",
         title: "පරිනිර්වාණය",
-        icon: "✺",
-        description: "බුදුන් වහන්සේගේ අවසාන මහා පරිනිර්වාණය අනිත්‍යතාව සහ අප්‍රමාදව ජීවත් වීම පිළිබඳ ගැඹුරු පණිවිඩයක් ලබා දෙයි. එය ශ්‍රද්ධාවෙන් සිහි කරන මහා සංවේදී අවස්ථාවකි."
+        icon: "✧",
+        glow: "rgba(255, 248, 215, 0.32)",
+        description: "කුසිනාරාවේදී බුදුන් වහන්සේ පරිනිර්වාණයට පත් වූ සේක. මෙම අවස්ථාව අනිත්‍යතාව සහ අප්‍රමාදය සිහි කරන සංවේදී මොහොතකි."
     }
 ];
 
@@ -40,6 +61,7 @@ const panels = document.querySelectorAll(".story-panel");
 const modal = document.getElementById("storyModal");
 const closeModal = document.getElementById("closeModal");
 const storyIcon = document.getElementById("storyIcon");
+const storyVisual = document.getElementById("storyVisual");
 const storyKicker = document.getElementById("storyKicker");
 const storyTitle = document.getElementById("storyTitle");
 const storyDescription = document.getElementById("storyDescription");
@@ -64,6 +86,7 @@ function renderStory(index) {
     const story = stories[index];
     currentStoryIndex = index;
     storyIcon.textContent = story.icon;
+    storyVisual.style.setProperty("--story-glow", story.glow);
     storyKicker.textContent = story.number;
     storyTitle.textContent = story.title;
     storyDescription.textContent = story.description;

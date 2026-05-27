@@ -185,8 +185,8 @@ h1 {
 
 .thorana {
     position: relative;
-    width: min(840px, 100%);
-    min-height: 650px;
+    width: min(960px, 100%);
+    min-height: 760px;
     padding: 1.8rem min(5vw, 3rem) 2.1rem;
     filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.45));
 }
@@ -216,6 +216,24 @@ h1 {
     animation: flame 1.4s ease-in-out infinite alternate;
 }
 
+.dharma-wheel {
+    position: absolute;
+    left: 50%;
+    top: 1rem;
+    display: grid;
+    place-items: center;
+    width: 4.4rem;
+    height: 4.4rem;
+    transform: translateX(-50%);
+    border: 2px solid rgba(255, 214, 107, 0.72);
+    border-radius: 50%;
+    color: var(--gold);
+    background: rgba(7, 9, 22, 0.54);
+    box-shadow: 0 0 28px rgba(255, 214, 107, 0.38);
+    font-size: 2.4rem;
+    animation: blink 1.8s ease-in-out infinite alternate;
+}
+
 .dome__ring {
     position: absolute;
     inset: 1.1rem 1.4rem 0;
@@ -233,8 +251,8 @@ h1 {
     position: relative;
     display: grid;
     gap: 1rem;
-    min-height: 470px;
-    padding: 5.1rem min(7vw, 5.3rem) 3.4rem;
+    min-height: 590px;
+    padding: 4.2rem min(7vw, 5.3rem) 3.8rem;
     border: 10px solid var(--gold);
     border-top-width: 14px;
     border-radius: 48% 48% 10px 10px / 24% 24% 10px 10px;
@@ -244,6 +262,41 @@ h1 {
     box-shadow:
         0 0 36px rgba(255, 214, 107, 0.42),
         inset 0 0 42px rgba(130, 247, 255, 0.11);
+}
+
+.sacred-center {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: min(430px, 74%);
+    aspect-ratio: 1.45;
+    margin: 0 auto 0.25rem;
+    border: 2px solid rgba(255, 214, 107, 0.5);
+    border-radius: 8px;
+    background:
+        radial-gradient(circle at 50% 45%, rgba(255, 214, 107, 0.24), transparent 48%),
+        linear-gradient(180deg, rgba(13, 18, 42, 0.68), rgba(43, 13, 44, 0.62));
+    box-shadow: inset 0 0 34px rgba(255, 214, 107, 0.08), 0 0 32px rgba(130, 247, 255, 0.12);
+    overflow: hidden;
+}
+
+.sacred-center__image {
+    position: relative;
+    z-index: 1;
+    width: min(260px, 70%);
+    max-height: 230px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 24px rgba(255, 214, 107, 0.5));
+}
+
+.sacred-center__halo {
+    position: absolute;
+    width: 11rem;
+    aspect-ratio: 1;
+    border: 2px solid rgba(255, 214, 107, 0.52);
+    border-radius: 50%;
+    box-shadow: 0 0 44px rgba(255, 214, 107, 0.34), inset 0 0 32px rgba(255, 214, 107, 0.16);
+    animation: pulseHalo 2.8s ease-in-out infinite alternate;
 }
 
 .arch::before,
@@ -326,16 +379,6 @@ h1 {
     animation: shine 0.9s ease;
 }
 
-.story-panel--main {
-    width: min(380px, 100%);
-    min-height: 132px;
-    margin: 0 auto 0.2rem;
-    text-align: center;
-    background:
-        radial-gradient(circle at 50% 0%, rgba(255, 248, 215, 0.18), transparent 65%),
-        var(--panel-strong);
-}
-
 .story-panel__number {
     color: var(--cyan);
     font-size: 0.78rem;
@@ -351,8 +394,12 @@ h1 {
 
 .panel-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.8rem;
+}
+
+.story-panel--wide {
+    grid-column: 2 / span 2;
 }
 
 .pillars {
@@ -367,7 +414,7 @@ h1 {
 
 .pillar {
     width: min(90px, 16vw);
-    height: 312px;
+    height: 390px;
     border: 5px solid rgba(255, 214, 107, 0.95);
     border-radius: 8px;
     background:
@@ -499,12 +546,25 @@ footer {
     cursor: pointer;
 }
 
+.modal__visual {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    min-height: 138px;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(255, 214, 107, 0.34);
+    border-radius: 8px;
+    background:
+        radial-gradient(circle at 50% 45%, var(--story-glow, rgba(255, 214, 107, 0.32)), transparent 42%),
+        linear-gradient(135deg, rgba(130, 247, 255, 0.1), rgba(255, 122, 144, 0.08));
+    overflow: hidden;
+}
+
 .modal__icon {
     display: grid;
     place-items: center;
-    width: 64px;
-    height: 64px;
-    margin-bottom: 1rem;
+    width: 78px;
+    height: 78px;
     border-radius: 50%;
     color: #211327;
     background: var(--gold);
@@ -606,6 +666,18 @@ footer {
     }
 }
 
+@keyframes pulseHalo {
+    from {
+        opacity: 0.58;
+        transform: scale(0.92);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.04);
+    }
+}
+
 @media (max-width: 760px) {
     .topbar {
         align-items: flex-start;
@@ -632,6 +704,14 @@ footer {
         grid-template-columns: 1fr;
     }
 
+    .story-panel--wide {
+        grid-column: auto;
+    }
+
+    .sacred-center {
+        width: min(360px, 100%);
+    }
+
     .story-panel {
         min-height: 92px;
     }
@@ -644,7 +724,7 @@ footer {
 
     .pillar {
         width: 42px;
-        height: 420px;
+        height: 620px;
         opacity: 0.72;
     }
 
@@ -688,9 +768,9 @@ footer {
     }
 
     .thorana {
-        transform: scale(0.82);
+        transform: scale(0.8);
         transform-origin: top center;
-        margin-bottom: -7rem;
+        margin-bottom: -9rem;
     }
 }
 
@@ -700,8 +780,8 @@ footer {
     }
 
     .thorana {
-        transform: scale(0.68);
-        margin-bottom: -14rem;
+        transform: scale(0.72);
+        margin-bottom: -13rem;
     }
 }
 
