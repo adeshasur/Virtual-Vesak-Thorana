@@ -5,6 +5,7 @@ const stories = [
         title: "සිද්ධාර්ථ කුමරුගේ උපත",
         icon: "✦",
         glow: "rgba(255, 214, 107, 0.38)",
+        image: "assets/images/story-birth.png",
         description: "ලුම්බිණි උයනේ සිද්ධාර්ථ කුමරු උපත ලැබීය. මෙම අවස්ථාව බුදු සිරිතේ ආරම්භය ලෙස ශ්‍රද්ධාවෙන් සිහි කරයි."
     },
     {
@@ -13,6 +14,7 @@ const stories = [
         title: "හතර දර්ශන",
         icon: "◌",
         glow: "rgba(130, 247, 255, 0.3)",
+        image: "assets/images/story-four-sights.png",
         description: "වයසක, රෝගී, මළ සහ සංඝයා දැක ජීවිතයේ අනිත්‍ය බවත් දුකත් සිද්ධාර්ථ කුමරුට ගැඹුරින් අවබෝධ විය."
     },
     {
@@ -21,6 +23,7 @@ const stories = [
         title: "මහබිනික්මන",
         icon: "☾",
         glow: "rgba(143, 112, 255, 0.32)",
+        image: "assets/images/story-renunciation.png",
         description: "සත්‍යය සොයා රාජකීය ජීවිතය අත්හැර නිහඬ රැයක පිටත්වූ අවස්ථාව මහබිනික්මන ලෙස හැඳින්වේ."
     },
     {
@@ -29,6 +32,7 @@ const stories = [
         title: "දුෂ්කර ක්‍රියා",
         icon: "✺",
         glow: "rgba(255, 122, 144, 0.28)",
+        image: "assets/images/story-austerities.png",
         description: "සත්‍යය සෙවීමේ දැඩි කැපවීමෙන් සිද්ධාර්ථ තවුසා දුෂ්කර ක්‍රියා කළ කාලය මෙහි සිහි කරයි."
     },
     {
@@ -37,6 +41,7 @@ const stories = [
         title: "බුද්ධත්වය ලැබීම",
         icon: "☸",
         glow: "rgba(255, 214, 107, 0.46)",
+        image: "assets/images/story-enlightenment.png",
         description: "බෝධි වෘක්ෂය යටදී ගැඹුරු භාවනාවෙන් පසු සම්මා සම්බුද්ධත්වය ලැබූ මහා පූජනීය අවස්ථාවයි."
     },
     {
@@ -45,6 +50,7 @@ const stories = [
         title: "පළමු ධර්ම දේශනාව",
         icon: "◉",
         glow: "rgba(130, 247, 255, 0.34)",
+        image: "assets/images/story-sermon.png",
         description: "ඉසිපතන මිගදායේදී ධම්මචක්කප්පවත්තන සූත්‍රය දේශනා කරමින් බුදුන් වහන්සේ ධර්ම චක්‍රය පළමුව වට කළ සේක."
     },
     {
@@ -53,6 +59,7 @@ const stories = [
         title: "පරිනිර්වාණය",
         icon: "✧",
         glow: "rgba(255, 248, 215, 0.32)",
+        image: "assets/images/story-parinibbana.png",
         description: "කුසිනාරාවේදී බුදුන් වහන්සේ පරිනිර්වාණයට පත් වූ සේක. මෙම අවස්ථාව අනිත්‍යතාව සහ අප්‍රමාදය සිහි කරන සංවේදී මොහොතකි."
     }
 ];
@@ -62,6 +69,7 @@ const modal = document.getElementById("storyModal");
 const closeModal = document.getElementById("closeModal");
 const storyIcon = document.getElementById("storyIcon");
 const storyVisual = document.getElementById("storyVisual");
+const storyImage = document.getElementById("storyImage");
 const storyKicker = document.getElementById("storyKicker");
 const storyTitle = document.getElementById("storyTitle");
 const storyDescription = document.getElementById("storyDescription");
@@ -87,6 +95,8 @@ function renderStory(index) {
     currentStoryIndex = index;
     storyIcon.textContent = story.icon;
     storyVisual.style.setProperty("--story-glow", story.glow);
+    storyImage.src = story.image;
+    storyImage.alt = story.title;
     storyKicker.textContent = story.number;
     storyTitle.textContent = story.title;
     storyDescription.textContent = story.description;
