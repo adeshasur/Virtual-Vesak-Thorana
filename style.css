@@ -852,11 +852,10 @@ h1 {
 
 .thorana--image-stage .story-panel::before {
     inset: -7px;
-    border: 2px solid rgba(255, 214, 107, 0.0);
+    border: 0;
     border-radius: inherit;
-    background: radial-gradient(circle, rgba(255, 214, 107, 0.0), transparent 62%);
+    background: transparent;
     transform: none;
-    transition: border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
 }
 
 .thorana--image-stage .story-panel::after {
@@ -872,9 +871,8 @@ h1 {
 
 .thorana--image-stage .story-panel:hover::before,
 .thorana--image-stage .story-panel:focus-visible::before {
-    border-color: rgba(255, 214, 107, 0.78);
-    background: radial-gradient(circle, rgba(255, 214, 107, 0.16), rgba(255, 214, 107, 0.05) 44%, transparent 70%);
-    box-shadow: 0 0 24px rgba(255, 214, 107, 0.54), inset 0 0 20px rgba(255, 214, 107, 0.16);
+    background: transparent;
+    box-shadow: none;
     animation: none;
 }
 
