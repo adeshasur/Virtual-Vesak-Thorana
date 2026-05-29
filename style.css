@@ -778,23 +778,23 @@ h1 {
 }
 
 .live-light--arch {
-    left: 19%;
-    top: 5%;
-    width: 62%;
-    height: 47%;
-    border-radius: 50% 50% 14% 14% / 70% 70% 12% 12%;
+    left: 18.5%;
+    top: 13%;
+    width: 63%;
+    height: 35%;
+    border-radius: 50% 50% 8% 8% / 82% 82% 10% 10%;
     background:
         radial-gradient(circle, rgba(255, 255, 210, 1) 0 1.6px, transparent 2.5px) var(--spark-x, 0) var(--spark-y, 0) / 18px 18px,
         radial-gradient(circle, rgba(47, 255, 82, 0.9) 0 1.7px, transparent 2.8px) calc(var(--spark-x, 0) + 9px) calc(var(--spark-y, 0) + 5px) / 22px 22px;
-    opacity: 0.42;
+    opacity: 0.34;
     filter: drop-shadow(0 0 10px rgba(255, 255, 210, 0.9));
     animation: liveCircuit 1.4s steps(4, end) infinite;
 }
 
 .live-light--halo {
-    left: 38%;
-    top: 7%;
-    width: 24%;
+    left: 39.5%;
+    top: 16%;
+    width: 21%;
     aspect-ratio: 1;
     border-radius: 50%;
     background:
@@ -806,26 +806,30 @@ h1 {
 }
 
 .live-light--base {
-    left: 12%;
-    top: 79%;
-    width: 76%;
-    height: 12%;
+    left: 18%;
+    top: 82%;
+    width: 64%;
+    height: 9%;
     border-radius: 999px;
     background:
         radial-gradient(circle, rgba(255, 255, 220, 1) 0 1.7px, transparent 2.7px) var(--spark-x, 0) 0 / 17px 17px,
         linear-gradient(90deg, transparent, rgba(255, 214, 107, 0.24), transparent);
-    opacity: 0.48;
+    opacity: 0.38;
     filter: drop-shadow(0 0 12px rgba(255, 214, 107, 0.88));
     animation: liveCircuit 1.1s steps(5, end) infinite reverse;
 }
 
 .spark-field {
-    inset: 4% 6% 7%;
+    left: 17%;
+    top: 16%;
+    width: 66%;
+    height: 74%;
+    border-radius: 48% 48% 8% 8% / 34% 34% 8% 8%;
     background:
         radial-gradient(circle, rgba(255, 255, 230, 0.92) 0 1.2px, transparent 2px) 3px 9px / 31px 29px,
         radial-gradient(circle, rgba(255, 62, 72, 0.82) 0 1.5px, transparent 2.4px) 15px 4px / 37px 34px,
         radial-gradient(circle, rgba(47, 255, 82, 0.72) 0 1.2px, transparent 2.2px) 24px 16px / 43px 39px;
-    opacity: 0.2;
+    opacity: 0.14;
     filter: drop-shadow(0 0 7px rgba(255, 255, 220, 0.7));
     animation: sparkBlink 0.9s steps(2, end) infinite;
 }
