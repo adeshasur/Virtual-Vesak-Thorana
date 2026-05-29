@@ -34,7 +34,7 @@ body {
         radial-gradient(circle at 50% 24%, rgba(255, 214, 107, 0.13), transparent 22rem),
         radial-gradient(circle at 20% 20%, rgba(255, 166, 45, 0.1), transparent 26rem),
         linear-gradient(180deg, #000 0%, #050409 48%, #110206 100%);
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 body::before {
@@ -124,11 +124,11 @@ button {
     gap: 1rem;
     width: min(1180px, calc(100% - 2rem));
     margin: 0 auto;
-    padding: 0.9rem 0 0.35rem;
+    padding: 0.55rem 0 0.2rem;
 }
 
 .eyebrow {
-    margin: 0 0 0.2rem;
+    margin: 0 0 0.1rem;
     color: var(--cyan);
     font-size: 0.76rem;
     font-weight: 800;
@@ -144,7 +144,7 @@ p {
 
 h1 {
     margin-bottom: 0;
-    font-size: clamp(1.35rem, 3.4vw, 2.65rem);
+    font-size: clamp(1.2rem, 3vw, 2.35rem);
     line-height: 1.05;
     color: transparent;
     background: linear-gradient(90deg, #fff8d7, var(--gold) 46%, #ff9f2d 72%, #fff1b0);
@@ -158,8 +158,8 @@ h1 {
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    min-height: 44px;
-    padding: 0.72rem 0.95rem;
+    min-height: 40px;
+    padding: 0.55rem 0.8rem;
     border: 1px solid rgba(255, 214, 107, 0.42);
     border-radius: 8px;
     color: var(--white);
@@ -214,9 +214,9 @@ h1 {
     display: grid;
     place-items: center;
     width: min(1280px, calc(100% - 0.5rem));
-    min-height: calc(100vh - 140px);
+    min-height: calc(100vh - 92px);
     margin: 0 auto;
-    padding: 0 0 1.4rem;
+    padding: 0;
 }
 
 .thorana {
@@ -766,7 +766,8 @@ h1 {
 .real-thorana-image {
     display: block;
     width: min(1220px, 98vw);
-    height: auto;
+    max-height: calc(100vh - 118px);
+    object-fit: contain;
     filter: saturate(1.08) contrast(1.06) brightness(1.04);
 }
 
@@ -778,23 +779,23 @@ h1 {
 }
 
 .live-light--arch {
-    left: 18.5%;
-    top: 13%;
-    width: 63%;
-    height: 35%;
-    border-radius: 50% 50% 8% 8% / 82% 82% 10% 10%;
+    left: 42%;
+    top: 22%;
+    width: 16%;
+    height: 27%;
+    border-radius: 999px;
     background:
         radial-gradient(circle, rgba(255, 255, 210, 1) 0 1.6px, transparent 2.5px) var(--spark-x, 0) var(--spark-y, 0) / 18px 18px,
         radial-gradient(circle, rgba(47, 255, 82, 0.9) 0 1.7px, transparent 2.8px) calc(var(--spark-x, 0) + 9px) calc(var(--spark-y, 0) + 5px) / 22px 22px;
-    opacity: 0.34;
+    opacity: 0.24;
     filter: drop-shadow(0 0 10px rgba(255, 255, 210, 0.9));
     animation: liveCircuit 1.4s steps(4, end) infinite;
 }
 
 .live-light--halo {
-    left: 39.5%;
-    top: 16%;
-    width: 21%;
+    left: 40.2%;
+    top: 19.2%;
+    width: 19.2%;
     aspect-ratio: 1;
     border-radius: 50%;
     background:
@@ -806,30 +807,30 @@ h1 {
 }
 
 .live-light--base {
-    left: 18%;
-    top: 82%;
-    width: 64%;
-    height: 9%;
+    left: 19%;
+    top: 86.3%;
+    width: 62%;
+    height: 3.8%;
     border-radius: 999px;
     background:
         radial-gradient(circle, rgba(255, 255, 220, 1) 0 1.7px, transparent 2.7px) var(--spark-x, 0) 0 / 17px 17px,
         linear-gradient(90deg, transparent, rgba(255, 214, 107, 0.24), transparent);
-    opacity: 0.38;
+    opacity: 0.42;
     filter: drop-shadow(0 0 12px rgba(255, 214, 107, 0.88));
     animation: liveCircuit 1.1s steps(5, end) infinite reverse;
 }
 
 .spark-field {
-    left: 17%;
-    top: 16%;
-    width: 66%;
-    height: 74%;
-    border-radius: 48% 48% 8% 8% / 34% 34% 8% 8%;
+    left: 32%;
+    top: 48%;
+    width: 36%;
+    height: 35%;
+    border-radius: 12px;
     background:
         radial-gradient(circle, rgba(255, 255, 230, 0.92) 0 1.2px, transparent 2px) 3px 9px / 31px 29px,
         radial-gradient(circle, rgba(255, 62, 72, 0.82) 0 1.5px, transparent 2.4px) 15px 4px / 37px 34px,
         radial-gradient(circle, rgba(47, 255, 82, 0.72) 0 1.2px, transparent 2.2px) 24px 16px / 43px 39px;
-    opacity: 0.14;
+    opacity: 0.07;
     filter: drop-shadow(0 0 7px rgba(255, 255, 220, 0.7));
     animation: sparkBlink 0.9s steps(2, end) infinite;
 }
