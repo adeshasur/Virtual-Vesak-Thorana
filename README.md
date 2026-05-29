@@ -20,6 +20,8 @@ Budu Siritha Digital Vesak Thorana is an interactive one-page web experience tha
 - `assets/images/vesak-thorana-background.png` - generated visual background asset
 - `assets/images/buddha-silhouette.png` - generated central symbolic illustration
 - `assets/images/buddha-statue-center.png` - generated realistic central statue-style illustration
+- `assets/images/realistic-thorana-stage.png` - generated full-stage thorana render used as the main interactive visual
+- `assets/images/realistic-thorana-stage-transparent.png` - transparent-background version used on the page
 - `assets/images/story-*.png` - generated illustrations for the seven story panels
 
 ## Run

@@ -75,6 +75,7 @@ const storyTitle = document.getElementById("storyTitle");
 const storyDescription = document.getElementById("storyDescription");
 const prevStory = document.getElementById("prevStory");
 const nextStory = document.getElementById("nextStory");
+const speakStory = document.getElementById("speakStory");
 const musicToggle = document.getElementById("musicToggle");
 const musicLabel = document.getElementById("musicLabel");
 
@@ -85,6 +86,7 @@ let masterGain;
 let droneNodes = [];
 let bellTimer;
 let isMusicPlaying = false;
+let isNarrating = false;
 
 function getStoryIndex(id) {
     return stories.findIndex((story) => story.id === id);
@@ -93,6 +95,7 @@ function getStoryIndex(id) {
 function renderStory(index) {
     const story = stories[index];
     currentStoryIndex = index;
+    stopNarration();
     storyIcon.textContent = story.icon;
     storyVisual.style.setProperty("--story-glow", story.glow);
     storyImage.src = story.image;
@@ -116,12 +119,54 @@ function openStoryModal(id) {
 }
 
 function closeStoryModal() {
+    stopNarration();
     modal.classList.remove("show");
     modal.setAttribute("aria-hidden", "true");
 
     if (lastFocusedPanel) {
         lastFocusedPanel.focus();
     }
+}
+
+function stopNarration() {
+    if ("speechSynthesis" in window) {
+        window.speechSynthesis.cancel();
+    }
+
+    isNarrating = false;
+    speakStory.textContent = "Narration";
+    speakStory.setAttribute("aria-pressed", "false");
+}
+
+function toggleNarration() {
+    if (!("speechSynthesis" in window)) {
+        speakStory.textContent = "Unavailable";
+        window.setTimeout(() => {
+            if (!isNarrating) {
+                speakStory.textContent = "Narration";
+            }
+        }, 1600);
+        return;
+    }
+
+    if (isNarrating) {
+        stopNarration();
+        return;
+    }
+
+    const story = stories[currentStoryIndex];
+    const utterance = new SpeechSynthesisUtterance(`${story.title}. ${story.description}`);
+    utterance.lang = "si-LK";
+    utterance.rate = 0.82;
+    utterance.pitch = 0.92;
+    utterance.onend = stopNarration;
+    utterance.onerror = stopNarration;
+
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(utterance);
+    isNarrating = true;
+    speakStory.textContent = "Stop";
+    speakStory.setAttribute("aria-pressed", "true");
 }
 
 function showRelativeStory(step) {
@@ -224,6 +269,7 @@ modal.addEventListener("click", (event) => {
 
 prevStory.addEventListener("click", () => showRelativeStory(-1));
 nextStory.addEventListener("click", () => showRelativeStory(1));
+speakStory.addEventListener("click", toggleNarration);
 
 musicToggle.addEventListener("click", () => {
     if (isMusicPlaying) {

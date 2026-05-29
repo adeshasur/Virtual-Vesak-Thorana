@@ -34,84 +34,41 @@
         </section>
 
         <section class="thorana-wrap" aria-label="Interactive Vesak thorana">
-            <div class="thorana">
-                <div class="thorana__wing thorana__wing--left" aria-hidden="true"></div>
-                <div class="thorana__wing thorana__wing--right" aria-hidden="true"></div>
-
-                <div class="dome">
-                    <span class="flame"></span>
-                    <span class="dharma-wheel" aria-hidden="true">☸</span>
-                    <span class="dome__ring"></span>
-                    <span class="dome__ring dome__ring--inner"></span>
-                </div>
-
-                <div class="light-row light-row--top" aria-hidden="true"></div>
-
-                <div class="arch">
-                    <div class="arch__lights arch__lights--left" aria-hidden="true"></div>
-                    <div class="arch__lights arch__lights--right" aria-hidden="true"></div>
-                    <div class="red-strut red-strut--left" aria-hidden="true"></div>
-                    <div class="red-strut red-strut--right" aria-hidden="true"></div>
-
-                    <div class="sacred-center">
-                        <img src="assets/images/buddha-statue-center.png" alt="" class="sacred-center__image">
-                        <span class="sacred-center__halo" aria-hidden="true"></span>
-                        <span class="lotus lotus--left" aria-hidden="true"></span>
-                        <span class="lotus lotus--right" aria-hidden="true"></span>
-                    </div>
-
-                    <div class="ornament-line" aria-hidden="true">
-                        <span></span><span></span><span></span><span></span><span></span>
-                    </div>
-
-                    <div class="panel-grid">
-                        <button class="story-panel story-panel--round story-panel--left-high" type="button" data-story="birth">
-                            <img src="assets/images/story-birth.png" alt="" class="story-panel__image">
-                            <span class="story-panel__number">01</span>
-                            <span class="story-panel__title">උපත</span>
-                        </button>
-                        <button class="story-panel story-panel--round story-panel--right-high" type="button" data-story="four-sights">
-                            <img src="assets/images/story-four-sights.png" alt="" class="story-panel__image">
-                            <span class="story-panel__number">02</span>
-                            <span class="story-panel__title">හතර දර්ශන</span>
-                        </button>
-                        <button class="story-panel story-panel--round story-panel--left-mid" type="button" data-story="renunciation">
-                            <img src="assets/images/story-renunciation.png" alt="" class="story-panel__image">
-                            <span class="story-panel__number">03</span>
-                            <span class="story-panel__title">මහබිනික්මන</span>
-                        </button>
-                        <button class="story-panel story-panel--round story-panel--right-mid" type="button" data-story="austerities">
-                            <img src="assets/images/story-austerities.png" alt="" class="story-panel__image">
-                            <span class="story-panel__number">04</span>
-                            <span class="story-panel__title">දුෂ්කර ක්‍රියා</span>
-                        </button>
-                        <button class="story-panel story-panel--bottom" type="button" data-story="enlightenment">
-                            <img src="assets/images/story-enlightenment.png" alt="" class="story-panel__image">
-                            <span class="story-panel__number">05</span>
-                            <span class="story-panel__title">බුද්ධත්වය</span>
-                        </button>
-                        <button class="story-panel story-panel--bottom" type="button" data-story="sermon">
-                            <img src="assets/images/story-sermon.png" alt="" class="story-panel__image">
-                            <span class="story-panel__number">06</span>
-                            <span class="story-panel__title">පළමු දේශනාව</span>
-                        </button>
-                        <button class="story-panel story-panel--wide story-panel--bottom" type="button" data-story="parinibbana">
-                            <img src="assets/images/story-parinibbana.png" alt="" class="story-panel__image">
-                            <span class="story-panel__number">07</span>
-                            <span class="story-panel__title">පරිනිර්වාණය</span>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="pillars" aria-hidden="true">
-                    <div class="pillar"></div>
-                    <div class="pillar"></div>
-                </div>
-
-                <div class="base">
-                    <span class="base__lamp" aria-hidden="true"></span>
-                    <span>සදහම් ආලෝකය</span>
-                    <span class="base__lamp base__lamp--right" aria-hidden="true"></span>
+            <div class="thorana thorana--image-stage">
+                <img src="assets/images/realistic-thorana-stage-transparent.png" alt="Realistic Digital Vesak Thorana" class="real-thorana-image">
+                <div class="live-light live-light--arch" aria-hidden="true"></div>
+                <div class="live-light live-light--halo" aria-hidden="true"></div>
+                <div class="live-light live-light--base" aria-hidden="true"></div>
+                <div class="spark-field" aria-hidden="true"></div>
+                <div class="hotspot-layer" aria-label="Story panels">
+                    <button class="story-panel hotspot hotspot--birth" type="button" data-story="birth">
+                        <span class="story-panel__number">01</span>
+                        <span class="story-panel__title">උපත</span>
+                    </button>
+                    <button class="story-panel hotspot hotspot--four-sights" type="button" data-story="four-sights">
+                        <span class="story-panel__number">02</span>
+                        <span class="story-panel__title">හතර දර්ශන</span>
+                    </button>
+                    <button class="story-panel hotspot hotspot--renunciation" type="button" data-story="renunciation">
+                        <span class="story-panel__number">03</span>
+                        <span class="story-panel__title">මහබිනික්මන</span>
+                    </button>
+                    <button class="story-panel hotspot hotspot--austerities" type="button" data-story="austerities">
+                        <span class="story-panel__number">04</span>
+                        <span class="story-panel__title">දුෂ්කර ක්‍රියා</span>
+                    </button>
+                    <button class="story-panel hotspot hotspot--enlightenment" type="button" data-story="enlightenment">
+                        <span class="story-panel__number">05</span>
+                        <span class="story-panel__title">බුද්ධත්වය</span>
+                    </button>
+                    <button class="story-panel hotspot hotspot--sermon" type="button" data-story="sermon">
+                        <span class="story-panel__number">06</span>
+                        <span class="story-panel__title">පළමු දේශනාව</span>
+                    </button>
+                    <button class="story-panel hotspot hotspot--parinibbana" type="button" data-story="parinibbana">
+                        <span class="story-panel__number">07</span>
+                        <span class="story-panel__title">පරිනිර්වාණය</span>
+                    </button>
                 </div>
             </div>
         </section>
@@ -135,6 +92,7 @@
             <h2 id="storyTitle"></h2>
             <p id="storyDescription"></p>
             <div class="modal__actions">
+                <button class="modal__nav modal__nav--speak" id="speakStory" type="button">Narration</button>
                 <button class="modal__nav" id="prevStory" type="button">Previous</button>
                 <button class="modal__nav" id="nextStory" type="button">Next</button>
             </div>
