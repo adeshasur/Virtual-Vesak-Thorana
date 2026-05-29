@@ -77,7 +77,23 @@ const prevStory = document.getElementById("prevStory");
 const nextStory = document.getElementById("nextStory");
 const speakStory = document.getElementById("speakStory");
 const musicToggle = document.getElementById("musicToggle");
+const musicNext = document.getElementById("musicNext");
 const musicLabel = document.getElementById("musicLabel");
+
+const musicTracks = [
+    {
+        title: "Buddhist Instrumental",
+        src: "assets/audio/buddhist-instrumental.mp3"
+    },
+    {
+        title: "Temple Bells",
+        src: "assets/audio/temple-bells.mp3"
+    },
+    {
+        title: "Pirith Chant",
+        src: "assets/audio/pirith-chant.mp3"
+    }
+];
 
 let currentStoryIndex = 0;
 let lastFocusedPanel = null;
@@ -87,6 +103,9 @@ let droneNodes = [];
 let bellTimer;
 let isMusicPlaying = false;
 let isNarrating = false;
+let currentTrackIndex = 0;
+let playlistAudio;
+let usingGeneratedAmbience = false;
 
 function getStoryIndex(id) {
     return stories.findIndex((story) => story.id === id);
@@ -188,7 +207,7 @@ function createOscillator(frequency, type, gainValue) {
 }
 
 function playBellTone() {
-    if (!audioContext || !masterGain || !isMusicPlaying) {
+    if (!audioContext || !masterGain || !isMusicPlaying || !usingGeneratedAmbience) {
         return;
     }
 
@@ -208,7 +227,7 @@ function playBellTone() {
     oscillator.stop(now + 2.3);
 }
 
-async function startMusic() {
+async function startGeneratedAmbience() {
     if (!audioContext) {
         audioContext = new AudioContext();
         masterGain = audioContext.createGain();
@@ -217,6 +236,7 @@ async function startMusic() {
     }
 
     await audioContext.resume();
+    usingGeneratedAmbience = true;
 
     if (droneNodes.length === 0) {
         droneNodes = [
@@ -226,17 +246,12 @@ async function startMusic() {
         ];
     }
 
-    isMusicPlaying = true;
-    musicToggle.setAttribute("aria-pressed", "true");
-    musicLabel.textContent = "Music On";
     playBellTone();
     bellTimer = window.setInterval(playBellTone, 9000);
 }
 
-function stopMusic() {
-    isMusicPlaying = false;
-    musicToggle.setAttribute("aria-pressed", "false");
-    musicLabel.textContent = "Music Off";
+function stopGeneratedAmbience() {
+    usingGeneratedAmbience = false;
     window.clearInterval(bellTimer);
 
     if (masterGain && audioContext) {
@@ -250,6 +265,76 @@ function stopMusic() {
             droneNodes = [];
             masterGain.gain.value = 0.18;
         }, 280);
+    }
+}
+
+async function playPlaylistTrack() {
+    const track = musicTracks[currentTrackIndex];
+
+    if (!playlistAudio) {
+        playlistAudio = new Audio();
+        playlistAudio.volume = 0.45;
+        playlistAudio.addEventListener("ended", () => {
+            currentTrackIndex = (currentTrackIndex + 1) % musicTracks.length;
+            if (isMusicPlaying) {
+                playPlaylistTrack().catch(() => startGeneratedAmbience());
+            }
+        });
+    }
+
+    playlistAudio.pause();
+    playlistAudio.src = track.src;
+    playlistAudio.currentTime = 0;
+    await playlistAudio.play();
+    usingGeneratedAmbience = false;
+    musicLabel.textContent = track.title;
+}
+
+async function startMusic() {
+    isMusicPlaying = true;
+    musicToggle.setAttribute("aria-pressed", "true");
+    musicLabel.textContent = "Loading...";
+
+    try {
+        await playPlaylistTrack();
+    } catch (error) {
+        await startGeneratedAmbience();
+        musicLabel.textContent = "Temple Ambience";
+    }
+}
+
+function stopMusic() {
+    isMusicPlaying = false;
+    musicToggle.setAttribute("aria-pressed", "false");
+    musicLabel.textContent = "Music Off";
+
+    if (playlistAudio) {
+        playlistAudio.pause();
+        playlistAudio.currentTime = 0;
+    }
+
+    stopGeneratedAmbience();
+}
+
+async function playNextMusicTrack() {
+    currentTrackIndex = (currentTrackIndex + 1) % musicTracks.length;
+
+    if (isMusicPlaying) {
+        stopGeneratedAmbience();
+
+        try {
+            await playPlaylistTrack();
+        } catch (error) {
+            await startGeneratedAmbience();
+            musicLabel.textContent = "Temple Ambience";
+        }
+    } else {
+        musicLabel.textContent = musicTracks[currentTrackIndex].title;
+        window.setTimeout(() => {
+            if (!isMusicPlaying) {
+                musicLabel.textContent = "Music Off";
+            }
+        }, 1400);
     }
 }
 
@@ -278,6 +363,8 @@ musicToggle.addEventListener("click", () => {
         startMusic();
     }
 });
+
+musicNext.addEventListener("click", playNextMusicTrack);
 
 document.addEventListener("keydown", (event) => {
     if (!modal.classList.contains("show")) {

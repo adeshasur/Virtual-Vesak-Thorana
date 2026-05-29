@@ -153,13 +153,18 @@ h1 {
     text-shadow: 0 0 22px rgba(255, 214, 107, 0.42);
 }
 
-.music-toggle {
+.music-controls {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.music-toggle,
+.music-next {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
     min-height: 40px;
-    padding: 0.55rem 0.8rem;
     border: 1px solid rgba(255, 214, 107, 0.42);
     border-radius: 8px;
     color: var(--white);
@@ -168,8 +173,22 @@ h1 {
     cursor: pointer;
 }
 
+.music-toggle {
+    gap: 0.5rem;
+    padding: 0.55rem 0.8rem;
+}
+
+.music-next {
+    width: 40px;
+    padding: 0;
+    font-size: 1.6rem;
+    line-height: 1;
+}
+
 .music-toggle:hover,
-.music-toggle:focus-visible {
+.music-toggle:focus-visible,
+.music-next:hover,
+.music-next:focus-visible {
     outline: 2px solid rgba(130, 247, 255, 0.55);
     outline-offset: 3px;
 }
@@ -843,6 +862,94 @@ h1 {
     animation: fiveColorGlow 3.6s ease-in-out infinite alternate;
 }
 
+.light-patterns,
+.pattern-light {
+    position: absolute;
+    pointer-events: none;
+    mix-blend-mode: screen;
+}
+
+.light-patterns {
+    inset: 0;
+    z-index: 2;
+}
+
+.pattern-light {
+    opacity: 0.42;
+    filter: drop-shadow(0 0 8px rgba(255, 235, 180, 0.9));
+}
+
+.pattern-light--border {
+    left: 18.5%;
+    top: 38%;
+    width: 63%;
+    height: 38%;
+    border-radius: 32% 32% 8% 8% / 28% 28% 8% 8%;
+    background:
+        radial-gradient(circle, rgba(255, 246, 210, 1) 0 1.5px, transparent 2.4px),
+        radial-gradient(circle, rgba(255, 226, 116, 0.95) 0 1.35px, transparent 2.3px),
+        radial-gradient(circle, rgba(255, 80, 42, 0.9) 0 1.4px, transparent 2.4px),
+        radial-gradient(circle, rgba(255, 80, 42, 0.86) 0 1.35px, transparent 2.3px);
+    background-size: 18px 18px, 18px 18px, 20px 20px, 20px 20px;
+    background-position:
+        var(--chase-x, 0) 0,
+        var(--chase-x-reverse, 0) 100%,
+        0 var(--chase-y, 0),
+        100% var(--chase-y-reverse, 0);
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    opacity: 0.36;
+    animation: borderChase 1.05s steps(4, end) infinite;
+}
+
+.pattern-light--tower-left,
+.pattern-light--tower-right {
+    top: 51%;
+    width: 4.8%;
+    height: 33%;
+    border-radius: 999px;
+    background:
+        radial-gradient(circle, rgba(255, 246, 210, 1) 0 1.8px, transparent 2.8px) 50% var(--tower-y, 0) / 16px 16px,
+        radial-gradient(circle, rgba(255, 173, 46, 0.82) 0 1.8px, transparent 2.8px) 50% calc(var(--tower-y, 0) + 8px) / 18px 18px;
+    opacity: 0.5;
+    animation: towerChase 1.25s steps(5, end) infinite;
+}
+
+.pattern-light--tower-left {
+    left: 23.2%;
+}
+
+.pattern-light--tower-right {
+    right: 23.2%;
+    animation-delay: -0.55s;
+}
+
+.pattern-light--bottom {
+    left: 18%;
+    top: 84%;
+    width: 64%;
+    height: 7%;
+    border-radius: 999px;
+    background:
+        radial-gradient(circle, rgba(255, 255, 220, 1) 0 1.7px, transparent 2.6px) var(--wave-x, 0) 50% / 16px 16px,
+        linear-gradient(90deg, transparent, rgba(255, 214, 107, 0.32), transparent);
+    opacity: 0.48;
+    animation: bottomWave 1.05s steps(6, end) infinite;
+}
+
+.pattern-light--halo {
+    left: 40.2%;
+    top: 18.8%;
+    width: 19.2%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background:
+        repeating-radial-gradient(circle, transparent 0 15px, rgba(255, 213, 61, 0.26) 16px 18px, transparent 19px 27px),
+        radial-gradient(circle, rgba(47, 255, 82, 0.16), transparent 58%);
+    opacity: 0.52;
+    filter: drop-shadow(0 0 18px rgba(47, 255, 82, 0.68));
+    animation: haloLightPulse 2s ease-in-out infinite alternate;
+}
+
 .hotspot-layer {
     position: absolute;
     inset: 0;
@@ -1304,6 +1411,78 @@ footer {
     }
 }
 
+@keyframes borderChase {
+    0% {
+        --chase-x: 0;
+        --chase-y: 0;
+        --chase-x-reverse: 0;
+        --chase-y-reverse: 0;
+        opacity: 0.24;
+    }
+
+    50% {
+        --chase-x: 9px;
+        --chase-y: 10px;
+        --chase-x-reverse: -9px;
+        --chase-y-reverse: -10px;
+        opacity: 0.54;
+    }
+
+    100% {
+        --chase-x: 18px;
+        --chase-y: 20px;
+        --chase-x-reverse: -18px;
+        --chase-y-reverse: -20px;
+        opacity: 0.34;
+    }
+}
+
+@keyframes towerChase {
+    0% {
+        --tower-y: 0;
+        opacity: 0.26;
+    }
+
+    50% {
+        --tower-y: 10px;
+        opacity: 0.62;
+    }
+
+    100% {
+        --tower-y: 20px;
+        opacity: 0.38;
+    }
+}
+
+@keyframes bottomWave {
+    0% {
+        --wave-x: 0;
+        opacity: 0.28;
+    }
+
+    50% {
+        --wave-x: 8px;
+        opacity: 0.64;
+    }
+
+    100% {
+        --wave-x: 16px;
+        opacity: 0.42;
+    }
+}
+
+@keyframes haloLightPulse {
+    from {
+        opacity: 0.34;
+        transform: scale(0.98);
+    }
+
+    to {
+        opacity: 0.66;
+        transform: scale(1.03);
+    }
+}
+
 @keyframes haloSpin {
     to {
         transform: rotate(360deg);
@@ -1392,6 +1571,10 @@ footer {
     }
 
     .music-toggle {
+        flex: 1;
+    }
+
+    .music-controls {
         align-self: stretch;
     }
 

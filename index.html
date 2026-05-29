@@ -21,16 +21,19 @@
             <p class="eyebrow">Vesak 2026</p>
             <h1>Budu Siritha Digital Vesak Thorana</h1>
         </div>
-        <button class="music-toggle" id="musicToggle" type="button" aria-pressed="false">
-            <span class="music-toggle__icon" aria-hidden="true">♪</span>
-            <span id="musicLabel">Music Off</span>
-        </button>
+        <div class="music-controls" aria-label="Music controls">
+            <button class="music-toggle" id="musicToggle" type="button" aria-pressed="false">
+                <span class="music-toggle__icon" aria-hidden="true">♪</span>
+                <span id="musicLabel">Music Off</span>
+            </button>
+            <button class="music-next" id="musicNext" type="button" aria-label="Next music track">›</button>
+        </div>
     </header>
 
     <main>
         <section class="thorana-wrap" aria-label="Interactive Vesak thorana">
             <div class="thorana thorana--image-stage">
-                <img src="assets/images/realistic-thorana-stage-transparent.png" alt="Realistic Digital Vesak Thorana" class="real-thorana-image">
+                <img src="assets/images/realistic-thorana-stage-v2-transparent.png" alt="Realistic Digital Vesak Thorana" class="real-thorana-image">
                 <div class="five-color-aura" aria-hidden="true">
                     <span></span>
                     <span></span>
@@ -39,6 +42,13 @@
                     <span></span>
                 </div>
                 <div class="five-color-wash" aria-hidden="true"></div>
+                <div class="light-patterns" aria-hidden="true">
+                    <span class="pattern-light pattern-light--border"></span>
+                    <span class="pattern-light pattern-light--tower-left"></span>
+                    <span class="pattern-light pattern-light--tower-right"></span>
+                    <span class="pattern-light pattern-light--bottom"></span>
+                    <span class="pattern-light pattern-light--halo"></span>
+                </div>
                 <div class="hotspot-layer" aria-label="Story panels">
                     <button class="story-panel hotspot hotspot--birth" type="button" data-story="birth">
                         <span class="story-panel__number">01</span>
